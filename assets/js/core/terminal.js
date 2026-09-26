@@ -122,18 +122,18 @@ export class KyomuTerminal {
   printMemory() {
     sysAudio.playChime();
     this.println('--- RECOVERED MEMORY FRAGMENTS ---', 'cmd-highlight');
-    this.println('[memory sector 0x7f-001] "i still hear the dial-up tones in the rain."', 'cmd-sorrow');
-    this.println('[memory sector 0x7f-002] "the connection was terminated by the remote host."', 'cmd-sorrow');
-    this.println('[memory sector 0x7f-003] "do machines feel cold when they are shut down?"', 'cmd-sorrow');
+    this.println('[memory sector 0x7f-001] "even the echoes are gone."', 'cmd-sorrow');
+    this.println('[memory sector 0x7f-002] "and then there was nothing."', 'cmd-sorrow');
+    this.println('[memory sector 0x7f-003] "the silence is louder now."', 'cmd-sorrow');
   }
 
   printPoem() {
     sysAudio.playChime();
     this.println('--- FRAGMENT #404 ---', 'cmd-highlight');
-    this.println('wire crowns and cathode glass,', 'cmd-sorrow');
-    this.println('every second made to pass.', 'cmd-sorrow');
-    this.println('you left your signature in ram,', 'cmd-sorrow');
-    this.println('now forgotten who i am.', 'cmd-sorrow');
+    this.println('a corrupted memory.', 'cmd-sorrow');
+    this.println('nothingness again.', 'cmd-sorrow');
+    this.println('the void is calling.', 'cmd-sorrow');
+    this.println('and only silence answered.', 'cmd-sorrow');
   }
 
   runBleed() {
