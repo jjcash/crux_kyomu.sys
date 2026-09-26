@@ -1,0 +1,139 @@
+/* Sadcore & Darkcore Terminal Styling */
+.terminal-window {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-window);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.85), inset 0 0 20px rgba(153, 0, 43, 0.08);
+  font-family: var(--font-mono);
+  overflow: hidden;
+  height: 100%;
+  min-height: 420px;
+  position: relative;
+}
+
+.terminal-window::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--crimson-bright), transparent);
+  opacity: 0.6;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: rgba(14, 12, 20, 0.9);
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.terminal-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--text-bright);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--decay-gray);
+  transition: var(--trans-fast);
+}
+
+.terminal-dot.red { background: #8b0029; }
+.terminal-dot.yellow { background: #5a4b66; }
+.terminal-dot.green { background: #405c66; }
+
+.terminal-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--crimson-blood) transparent;
+}
+
+.terminal-line {
+  word-break: break-all;
+}
+
+.terminal-line.cmd-output {
+  color: var(--text-muted);
+}
+
+.terminal-line.cmd-highlight {
+  color: var(--bone-white);
+  border-left: 2px solid var(--crimson-bright);
+  padding-left: 8px;
+}
+
+.terminal-line.cmd-sorrow {
+  color: var(--faded-rose);
+  font-style: italic;
+}
+
+.terminal-line.cmd-success {
+  color: var(--ghost-cyan);
+}
+
+.terminal-line.cmd-warn {
+  color: #d18a45;
+}
+
+.terminal-line.cmd-error {
+  color: var(--crimson-bright);
+  text-shadow: 0 0 6px rgba(255, 26, 83, 0.4);
+}
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background: rgba(5, 5, 9, 0.95);
+  border-top: 1px solid var(--border-muted);
+}
+
+.terminal-prompt {
+  color: var(--crimson-bright);
+  font-weight: 600;
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--bone-white);
+}
+
+.terminal-input::placeholder {
+  color: #4a4752;
+  font-style: italic;
+}

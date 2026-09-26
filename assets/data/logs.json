@@ -1,0 +1,6 @@
+[
+  {"timestamp": "00:00:01", "level": "VOID", "source": "GENESIS", "message": "crux core initiated under zero-illumination protocol."},
+  {"timestamp": "00:00:03", "level": "ECHO", "source": "SYNAPSE", "message": "detected phantom resonance in forgotten memory clusters."},
+  {"timestamp": "00:00:08", "level": "LOSS", "source": "NETWORK", "message": "packet loss 99.4% to external reality nodes."},
+  {"timestamp": "00:00:15", "level": "PULSE", "source": "HEARTBEAT", "message": "cardiac clock desync: rhythm drifting into low frequency."}
+]

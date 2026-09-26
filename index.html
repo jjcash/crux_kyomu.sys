@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="crux_kyomu.sys - darkcore / sadcore cybernetic terminal & desolation telemetry">
+  <meta name="keywords" content="crux_kyomu, darkcore, sadcore, cybernihilism, webcore, gothic terminal, void system">
+  <meta name="author" content="Crux Kyomu Void Syndicate">
+  <title>† CRUX_KYOMU.SYS // VOID_SECTOR †</title>
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="icon" href="./assets/images/crux_sigil.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Darkcore Grain & CRT Scanline Overlays -->
+  <div class="grain-overlay"></div>
+  <div class="scanlines"></div>
+
+  <!-- Ambient Sadcore Canvas Particles -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="app-container">
+    <!-- Header HUD -->
+    <header class="sys-header bleed-border">
+      <div class="brand-section">
+        <div style="width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;">
+          <img src="./assets/images/crux_sigil.svg" alt="Crux Sigil" style="width: 100%; height: 100%; filter: drop-shadow(0 0 8px rgba(255,26,83,0.5));">
+        </div>
+        <div>
+          <h1 class="sys-logo-glitch chromatic-text">
+            <span class="accent">CRUX</span>_<span style="color:var(--bone-white)">KYOMU</span>.SYS
+            <span class="sub-tag">「虚無と崩壊」</span>
+          </h1>
+        </div>
+        <span class="sys-badge">DESOLATION PROTOCOL • CLASS-4</span>
+      </div>
+
+      <div class="header-status-panel">
+        <div class="status-item">
+          <span class="status-label">TIME STREAM</span>
+          <span class="status-val" id="sys-clock">2026-09-26 00:00:00 utc [dec-void]</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">VESSEL STATE</span>
+          <span class="status-val" style="color: var(--crimson-bright)">irreversible decay</span>
+        </div>
+        <div class="theme-switcher">
+          <button class="theme-btn active" data-theme="noir">NOIR</button>
+          <button class="theme-btn" data-theme="crimson">CRIMSON</button>
+          <button class="theme-btn" data-theme="ghost">GHOST</button>
+          <button class="theme-btn" data-theme="abyss">ABYSS</button>
+          <button class="theme-btn" id="ambient-toggle-btn">🕯️ DRONE: OFF</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Dashboard Grid -->
+    <main class="main-grid">
+      <!-- Left Panel: Melancholy Gauges & Memory Fragment -->
+      <aside class="hud-panel">
+        <div class="panel-header">
+          <h2 class="panel-title"><span class="crux-icon">†</span> GRIEF & DECAY TELEMETRY</h2>
+          <span class="status-label" style="color: var(--crimson-bright)">LIVE</span>
+        </div>
+
+        <div class="subsystem-list">
+          <div class="subsystem-card">
+            <div class="subsystem-meta">
+              <span style="color:var(--bone-white)">SORROW INDEX</span>
+              <span id="val-sorrow-index" style="color: var(--crimson-bright)">95.4%</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar-fill" style="width: 95.4%;"></div>
+            </div>
+          </div>
+
+          <div class="subsystem-card">
+            <div class="subsystem-meta">
+              <span style="color:var(--bone-white)">ENTROPY DECAY RATE</span>
+              <span id="val-decay-rate" style="color: var(--ghost-cyan)">0.048 Δ/s</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar-fill" style="width: 68%; background: var(--ghost-cyan);"></div>
+            </div>
+          </div>
+
+          <div class="subsystem-card">
+            <div class="subsystem-meta">
+              <span style="color:var(--bone-white)">DESYNCHRONIZED PULSE</span>
+              <span id="val-pulse" style="color: var(--faded-rose)">58 bpm</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar-fill" style="width: 48%; background: var(--faded-rose);"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="memory-fragment">
+          <p>"there was something here once."</p>
+          <span class="author">† FRAGMENT [0X7F-VOID] †</span>
+        </div>
+
+        <div class="panel-header">
+          <h2 class="panel-title"><span class="crux-icon">†</span> CORRUPTED MEMORY HEX</h2>
+        </div>
+        <div class="hex-monitor" id="hex-stream">
+          0x7f0120  00 ad de ad  66 00 1a 07<br>
+          0x7f0128  b1 ee d0 44  ff 8b 00 00<br>
+          0x7f0130  6f 07 de ad  00 00 1a ff
+        </div>
+
+        <div class="panel-header">
+          <h2 class="panel-title"><span class="crux-icon">†</span> INVOCATIONS</h2>
+        </div>
+        <div class="action-grid">
+          <button class="sys-button action-btn" data-action="sorrow">💔 SORROW</button>
+          <button class="sys-button action-btn" data-action="poem">📜 POEM</button>
+          <button class="sys-button action-btn" data-action="memory">🕯️ MEMORY</button>
+          <button class="sys-button action-btn danger" data-action="bleed">🩸 BLEED</button>
+        </div>
+
+        <div class="panel-header" style="margin-top: 10px;">
+          <h2 class="panel-title"><span class="crux-icon">†</span> SPOTIFY PLAYLIST</h2>
+          <span class="sys-badge" style="font-size:0.62rem;">TRANSMISSION</span>
+        </div>
+        <div class="spotify-embed-container">
+          <iframe 
+            data-testid="embed-iframe" 
+            style="border-radius:12px" 
+            src="https://open.spotify.com/embed/playlist/5Tnhswyzsaw82p5qM2ZqtW?utm_source=generator&si=43b4b83bb3964f24" 
+            width="100%" 
+            height="352" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </aside>
+
+      <!-- Center Panel: Terminal Window -->
+      <section class="hud-panel" style="padding: 0; background: transparent; border: none;">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-title">
+              <span style="color: var(--crimson-bright)">†</span> CRUX_KYOMU_CLI // SADCORE TERMINAL SESSION [TTY:0]
+            </div>
+            <div class="terminal-controls">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+            </div>
+          </div>
+
+          <div class="terminal-body" id="terminal-output">
+            <!-- Populated dynamically by terminal.js -->
+          </div>
+
+          <div class="terminal-input-row">
+            <span class="terminal-prompt">kyomu@void:~#</span>
+            <input type="text" id="terminal-cmd-input" class="terminal-input" placeholder="type a sadcore command (e.g. 'help', 'sorrow', 'memory', 'poem', 'bleed', 'kyomu')..." autocomplete="off" autofocus>
+            <span class="cursor-sad"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Panel: Desolate Nodes & Event Stream -->
+      <aside class="hud-panel">
+        <div class="panel-header">
+          <h2 class="panel-title"><span class="crux-icon">†</span> ISOLATED NODES</h2>
+          <span class="sys-badge" style="font-size:0.62rem;">DEAD LINKS</span>
+        </div>
+
+        <div style="font-size: 0.74rem; display: flex; flex-direction: column; gap: 8px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.04); padding-bottom:4px;">
+            <span>tokyo-shibuya-abyss</span>
+            <span style="color:var(--text-muted); font-weight:600">timeout [lost]</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.04); padding-bottom:4px;">
+            <span>neo-kyoto-ruins</span>
+            <span style="color:var(--crimson-bright); font-weight:600">corrupted</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.04); padding-bottom:4px;">
+            <span>orbital-crux-grave</span>
+            <span style="color:var(--decay-gray); font-weight:600">silent</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span>abyssal-heart-0</span>
+            <span style="color:var(--faded-rose); font-weight:600">isolated [0 bpm]</span>
+          </div>
+        </div>
+
+        <div class="panel-header" style="margin-top: 10px;">
+          <h2 class="panel-title"><span class="crux-icon">†</span> ECHO FEED</h2>
+        </div>
+        <div id="log-feed" style="max-height: 180px; overflow-y: auto; display: flex; flex-direction: column;">
+          <!-- Populated by logs.js -->
+        </div>
+
+        <div class="panel-header" style="margin-top: 10px;">
+          <h2 class="panel-title"><span class="crux-icon">†</span> EXTERNAL SIGNALS</h2>
+          <span class="sys-badge" style="font-size:0.62rem;">TRANSMIT</span>
+        </div>
+        <div class="social-links-grid">
+          <a href="https://x.com/Seth_dnl" target="_blank" rel="noopener noreferrer" class="social-link-item">
+            <span class="social-name">X (TWITTER)</span>
+            <span class="social-handle">@Seth_dnl</span>
+          </a>
+          <a href="https://www.instagram.com/seth.d1845/" target="_blank" rel="noopener noreferrer" class="social-link-item">
+            <span class="social-name">INSTAGRAM</span>
+            <span class="social-handle">@seth.d1845</span>
+          </a>
+          <a href="https://steamcommunity.com/id/sethdnl/" target="_blank" rel="noopener noreferrer" class="social-link-item">
+            <span class="social-name">STEAM</span>
+            <span class="social-handle">seth</span>
+          </a>
+          <a href="https://discord.com/users/997465885503672370" target="_blank" rel="noopener noreferrer" class="social-link-item">
+            <span class="social-name">DISCORD</span>
+            <span class="social-handle">sethd1845</span>
+          </a>
+          <a href="https://pinterest.com/sethdnl" target="_blank" rel="noopener noreferrer" class="social-link-item">
+            <span class="social-name">PINTEREST</span>
+            <span class="social-handle">sethdnl</span>
+          </a>
+          <a href="https://www.reddit.com/user/oRavenTi/" target="_blank" rel="noopener noreferrer" class="social-link-item">
+            <span class="social-name">REDDIT</span>
+            <span class="social-handle">u/oRavenTi</span>
+          </a>
+          <a href="https://www.youtube.com/@sethdnl" target="_blank" rel="noopener noreferrer" class="social-link-item">
+            <span class="social-name">YOUTUBE</span>
+            <span class="social-handle">@sethdnl</span>
+          </a>
+          <a href="https://open.spotify.com/user/12157827613?si=49e9026c6cba41d1" target="_blank" rel="noopener noreferrer" class="social-link-item">
+            <span class="social-name">SPOTIFY</span>
+            <span class="social-handle">seth</span>
+          </a>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="sys-footer">
+      <div>
+        <span>CRUX_KYOMU.SYS // DARKCORE • SADCORE • NIHIL-KERNEL</span>
+      </div>
+      <div>
+        <span>ENTROPY STATUS: <strong style="color: var(--crimson-bright)">irreversible eternal static</strong></span>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>

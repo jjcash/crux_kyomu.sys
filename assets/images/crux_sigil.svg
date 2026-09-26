@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="cruxGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff1a53" stop-opacity="0.4"/>
+      <stop offset="70%" stop-color="#8b0029" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#030306" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="darkGlow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <!-- Background Aura -->
+  <circle cx="100" cy="100" r="90" fill="url(#cruxGlow)"/>
+  
+  <!-- Outer Broken Ring -->
+  <circle cx="100" cy="100" r="75" stroke="#4a235a" stroke-width="1.5" stroke-dasharray="8 4 2 6" fill="none" opacity="0.6"/>
+  <circle cx="100" cy="100" r="60" stroke="#8b0029" stroke-width="1" stroke-dasharray="14 10" fill="none" opacity="0.8"/>
+  
+  <!-- Cybernetic Cruciform Sigil -->
+  <g filter="url(#darkGlow)" stroke="#ff1a53" stroke-width="2" stroke-linecap="square">
+    <!-- Vertical Beam -->
+    <line x1="100" y1="20" x2="100" y2="180" />
+    <!-- Horizontal Cross Beam -->
+    <line x1="45" y1="70" x2="155" y2="70" />
+    <!-- Lower Bar -->
+    <line x1="75" y1="140" x2="125" y2="140" />
+    <!-- Spikes & Tech Accents -->
+    <polygon points="100,10 95,22 105,22" fill="#ff1a53" />
+    <polygon points="100,190 95,178 105,178" fill="#ff1a53" />
+    <polygon points="35,70 47,65 47,75" fill="#ff1a53" />
+    <polygon points="165,70 153,65 153,75" fill="#ff1a53" />
+  </g>
+
+  <!-- Kanji Void Subtext -->
+  <text x="100" y="105" fill="#dcd6cd" font-family="'JetBrains Mono', monospace" font-size="12" text-anchor="middle" letter-spacing="4" opacity="0.85">虚無</text>
+  <text x="100" y="120" fill="#7097b0" font-family="'Cinzel', serif" font-size="7" text-anchor="middle" letter-spacing="3" opacity="0.7">CRUX.KYOMU</text>
+</svg>

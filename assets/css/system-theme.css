@@ -1,0 +1,90 @@
+:root {
+  /* Default Noir Theme Baseline (Monochromatic Darkcore) */
+  --bg-dark: #030306;
+  --bg-abyss: #07070c;
+  --bg-card: rgba(12, 11, 16, 0.85);
+  --bg-card-hover: rgba(20, 19, 26, 0.92);
+  --bg-window: rgba(8, 8, 12, 0.95);
+
+  /* Borders & Glows */
+  --border-muted: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(255, 255, 255, 0.2);
+  --border-glow-active: rgba(255, 255, 255, 0.6);
+  --border-ghost: rgba(200, 200, 210, 0.2);
+
+  /* Noir Default Palette (Desaturated Ash, Bone & Shadow) */
+  --crimson-blood: #45444c;
+  --crimson-glow: rgba(255, 255, 255, 0.15);
+  --crimson-bright: #d4cfc7;
+
+  --ghost-cyan: #9ca3af;
+  --ghost-glow: rgba(156, 163, 175, 0.2);
+
+  --void-violet: #2b2a33;
+  --void-glow: rgba(255, 255, 255, 0.1);
+
+  --bruise-purple: #1e1d24;
+  --faded-rose: #8e8a93;
+  --bone-white: #e5e0d8;
+  --tear-blue: #94a3b8;
+  --decay-gray: #55535c;
+
+  /* Typography */
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --font-display: "Cinzel", "Orbitron", serif;
+  --font-gothic: "UnifrakturMaguntia", "Cinzel Decorative", cursive, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Text Colors */
+  --text-main: #a3a0a8;
+  --text-muted: #64626c;
+  --text-bright: #f1ede6;
+  --text-accent: #e5e0d8;
+  --text-ghost: #9ca3af;
+
+  /* Layout Spacing */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Transitions */
+  --trans-fast: 0.15s ease;
+  --trans-slow: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Theme variations */
+body[data-theme="noir"] {
+  --text-accent: #e5e0d8;
+  --border-glow: rgba(255, 255, 255, 0.2);
+  --ghost-glow: rgba(255, 255, 255, 0.1);
+  --crimson-blood: #45444c;
+  --crimson-bright: #d4cfc7;
+}
+
+body[data-theme="crimson"] {
+  --text-accent: #ff1a53;
+  --border-glow: rgba(255, 0, 68, 0.45);
+  --ghost-glow: rgba(255, 0, 68, 0.3);
+  --crimson-blood: #99002b;
+  --crimson-bright: #ff1a53;
+}
+
+body[data-theme="ghost"] {
+  --text-accent: #78bcc4;
+  --border-glow: rgba(120, 188, 196, 0.35);
+  --ghost-glow: rgba(120, 188, 196, 0.3);
+  --crimson-blood: #2c5157;
+  --crimson-bright: #78bcc4;
+}
+
+body[data-theme="abyss"] {
+  --text-accent: #a855f7;
+  --border-glow: rgba(168, 85, 247, 0.35);
+  --ghost-glow: rgba(168, 85, 247, 0.3);
+  --crimson-blood: #4a235a;
+  --crimson-bright: #c084fc;
+}
